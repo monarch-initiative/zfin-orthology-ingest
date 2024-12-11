@@ -1,7 +1,7 @@
 # Config file for transforming data from a source
 # See additional/optional config parameters at https://koza.monarchinitiative.org/Ingests/source_config/
 
-name: "zfin_orthologs"
+name: "zfin_orthology"
 # metadata: "./src/zfin_orthology_ingest/metadata.yaml"
 format: "csv"
 delimiter: "\t"
