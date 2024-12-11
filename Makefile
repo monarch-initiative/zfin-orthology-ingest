@@ -73,7 +73,7 @@ download:
 
 .PHONY: run
 run: download
-	$(RUN) duckdb :memory: < scripts/preprocess.sql
+	$(RUN) python scripts/preprocess.py
 	$(RUN) ingest transform
 	$(RUN) python scripts/generate-report.py
 
