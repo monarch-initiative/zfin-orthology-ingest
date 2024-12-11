@@ -1,0 +1,14 @@
+# Metadata for the project
+# Uncomment and edit the fields you want to include in the metadata
+# See metadata properties at https://koza.monarchinitiative.org/Ingests/source_config/
+
+id:  'CURIE for the project'
+name: 'zfin_orthologs'
+ingest_title: 'zfin_orthology_ingest'
+ingest_url: 'https://github.com/monarch-initiative/zfin-orthology-ingest'
+description: 'Transform of  ZFIN's curated orthology file into Biolink compliant KGX'
+# source: 'Possibly replaced by provided_by'
+provided_by: 'zfin'
+# One of license and rights is possibly redundant
+license: 'Link to license'
+rights: 'Link to rights' 

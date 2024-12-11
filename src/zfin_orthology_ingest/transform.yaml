@@ -1,0 +1,40 @@
+# Config file for transforming data from a source
+# See additional/optional config parameters at https://koza.monarchinitiative.org/Ingests/source_config/
+
+name: "zfin_orthologs"
+# metadata: "./src/zfin_orthology_ingest/metadata.yaml"
+format: "csv"
+delimiter: "\t"
+files:
+  - "./data/zfin_orthologs.tsv"
+
+columns:
+  - "zfin_gene"
+  - "ortholog_gene"
+  - "evidence"
+  - "publications"
+
+edge_properties:
+  - id
+  - category
+  - subject
+  - predicate
+  - object
+  - has_evidence
+  - publications
+  - knowledge_level
+  - agent_type
+
+### Optional parameters - uncomment to use, or remove to ignore
+
+min_node_count: 0
+min_edge_count: 62186
+### CSV specific parameters
+
+# Delimiter for csv files (REQUIRED if format is csv)
+# columns: List of columns to include in output
+# header: Header row index
+# header_delimiter: Delimiter for header in csv files
+# header_prefix: Prefix for header in csv files
+# comment_char: Comment character for csv files
+# skip_blank_lines: Boolean - whether to skip blank lines in csv files

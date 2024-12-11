@@ -1,0 +1,25 @@
+{
+  "template": "https://github.com/monarch-initiative/cookiecutter-monarch-ingest.git",
+  "commit": "f7665d103ea808bd4e5411df4c1daee7529656fb",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "github_org_name": "monarch-initiative",
+      "project_name": "zfin-orthology-ingest",
+      "project_description": "Transform of  ZFIN's curated orthology file into Biolink compliant KGX",
+      "__repo_name": "zfin-orthology-ingest",
+      "__project_slug": "zfin_orthology_ingest",
+      "__project_url": "https://github.com/monarch-initiative/zfin-orthology-ingest",
+      "ingest_source": "zfin",
+      "ingest_type": "orthologs",
+      "__ingest_name": "zfin_orthologs",
+      "min_python_version": "3.10",
+      "full_name": "Kevin Schaper",
+      "email": "kevin@tislab.org",
+      "__author": "Kevin Schaper <kevin@tislab.org>",
+      "license": "BSD-3",
+      "_template": "https://github.com/monarch-initiative/cookiecutter-monarch-ingest.git"
+    }
+  },
+  "directory": null
+}

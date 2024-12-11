@@ -1,0 +1,7 @@
+---
+- url: https://zfin.org/downloads/fly_orthos.txt
+  local_name: data/fly_orthos.txt
+- url: https://zfin.org/downloads/human_orthos.txt
+  local_name: data/human_orthos.txt
+- url: https://zfin.org/downloads/mouse_orthos.txt
+  local_name: data/mouse_orthos.txt
