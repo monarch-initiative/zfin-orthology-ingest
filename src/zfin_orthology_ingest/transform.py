@@ -5,15 +5,15 @@ from koza.cli_utils import get_koza_app
 
 koza_app = get_koza_app("zfin_orthology")
 
-# TODO: convert evidence codes to ECO, for now, include the full strings for clarity
+# Mappings provided by Ceri Van Slyke from ZFIN, ORCID:0000-0002-2244-7917
 evidence_map = {
-    "AA": "Amino acid sequence comparison",
-    "CE": "Coincident expression",
-    "CL": "Conserved map location",
-    "FC": "Functional complementation",
-    "NT": "Nucleotide sequence comparison",
-    "PT": "Phylogenetic tree",
-    "OT": "Other"
+    "AA": "ECO:0000031", # Amino acid sequence comparison to protein BLAST evidence used in manual assertion
+    "CE": "ECO:0001163", # Coincident expression to co-localization evidence used in manual assertion
+    "CL": "ECO:0000354", # Conserved map location to gene neighbors evidence used in manual assertion
+    "FC": "ECO:0006091", # Functional complementation to
+    "NT": "ECO:0000032", # Nucleotide sequence comparison to  functional complementation evidence used in manual assertion
+    "PT": "ECO:0007750", # Phylogenetic tree to phylogenetic evidence used in manual assertion
+    "OT": "ECO:0000352", # Other to evidence used in manual assertion
 }
 
 while (row := koza_app.get_row()) is not None:
