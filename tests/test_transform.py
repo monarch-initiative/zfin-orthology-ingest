@@ -51,7 +51,7 @@ def test_single_pub_entities(single_pub_entities):
     assert association.subject == "ZFIN:ZDB-GENE-080513-4"
     assert association.predicate == "biolink:orthologous_to"
     assert association.object == "HGNC:973"
-    assert association.has_evidence == ["Amino acid sequence comparison"]
+    assert association.has_evidence == ["ECO:0000031"]
     assert association.publications == ["ZFIN:ZDB-PUB-030905-1"]
 
 def test_multi_pub_entities(multi_pub_entities):
@@ -62,5 +62,5 @@ def test_multi_pub_entities(multi_pub_entities):
     assert association.subject == "ZFIN:ZDB-GENE-110510-1"
     assert association.predicate == "biolink:orthologous_to"
     assert association.object == "HGNC:11795"
-    assert association.has_evidence == ["Amino acid sequence comparison"]
+    assert association.has_evidence == ["ECO:0000031"]
     assert association.publications == ["ZFIN:ZDB-PUB-030905-1", "ZFIN:ZDB-PUB-140530-4", "ZFIN:ZDB-PUB-181103-13"]
