@@ -290,6 +290,17 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    zfin-orthology-ingest Report
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -299,6 +310,34 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#edges-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edges Report
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -324,6 +363,23 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#edges-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      Edges Report
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -344,6 +400,41 @@
 <p>This transform pulls in Human, Fly and Mouse orthology files from ZFIN and produces a Biolink KGX representation of the orthology relationships, with the zebrafish gene always occupying the subject position. Due to genome duplication, Zebrafish orthology can be especially complex to establish, and this makes the manual curation of orthology relationships provdided by ZFIN especially valuable.</p>
 <p>There are two awkard aspects to this transform with respect to Koza's limitations. The <code>human_orthos.txt</code> file has one more column than <code>fly_orthos.txt</code> and <code>mouse_orthos.txt</code>, additionally, these files have a single valued pulication field, but the Biolink model has a multivalued field. These two isses are addressed by a preprocessing SQL step that uses duckdb to normalize the columns and aggregate up to the publication. This step also adds gene prefixes for both the ZFIN gene and the ortholog, because the alternative (at least on the ortholog side) would have been to have bare integer IDs.  </p>
 <p>The transform results in the associations listed below</p>
+<h2 id="edges-report">Edges Report</h2>
+<table>
+<thead>
+<tr>
+<th>category</th>
+<th>subject_prefix</th>
+<th>predicate</th>
+<th>object_prefix</th>
+<th>count_star()</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>biolink:GeneToGeneHomologyAssociation</td>
+<td>ZFIN</td>
+<td>biolink:orthologous_to</td>
+<td>FB</td>
+<td>70</td>
+</tr>
+<tr>
+<td>biolink:GeneToGeneHomologyAssociation</td>
+<td>ZFIN</td>
+<td>biolink:orthologous_to</td>
+<td>HGNC</td>
+<td>33944</td>
+</tr>
+<tr>
+<td>biolink:GeneToGeneHomologyAssociation</td>
+<td>ZFIN</td>
+<td>biolink:orthologous_to</td>
+<td>MGI</td>
+<td>28172</td>
+</tr>
+</tbody>
+</table>
 
 
 
