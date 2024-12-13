@@ -25,9 +25,10 @@ while (row := koza_app.get_row()) is not None:
         subject=row["zfin_gene"],
         predicate="biolink:orthologous_to",
         object=row["ortholog_gene"],
-        # TODO: convert to ECO CURIE, values are AA, CL, CE, FC, NT, OT, PT 
         has_evidence=[evidence],
         publications=publications,
+        primary_knowledge_source="infores:zfin",
+        aggregator_knowledge_source=["infores:monarchinitiative"],
         knowledge_level=KnowledgeLevelEnum.knowledge_assertion,
         agent_type=AgentTypeEnum.manual_agent,
     )

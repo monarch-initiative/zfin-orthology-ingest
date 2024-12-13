@@ -53,6 +53,8 @@ def test_single_pub_entities(single_pub_entities):
     assert association.object == "HGNC:973"
     assert association.has_evidence == ["ECO:0000031"]
     assert association.publications == ["ZFIN:ZDB-PUB-030905-1"]
+    assert association.primary_knowledge_source == "infores:zfin"
+    assert association.aggregator_knowledge_source == ["infores:monarchinitiative"]
 
 def test_multi_pub_entities(multi_pub_entities):
     entities = multi_pub_entities
@@ -64,3 +66,5 @@ def test_multi_pub_entities(multi_pub_entities):
     assert association.object == "HGNC:11795"
     assert association.has_evidence == ["ECO:0000031"]
     assert association.publications == ["ZFIN:ZDB-PUB-030905-1", "ZFIN:ZDB-PUB-140530-4", "ZFIN:ZDB-PUB-181103-13"]
+    assert association.primary_knowledge_source == "infores:zfin"
+    assert association.aggregator_knowledge_source == ["infores:monarchinitiative"]
