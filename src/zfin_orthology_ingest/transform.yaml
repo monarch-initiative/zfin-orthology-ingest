@@ -22,6 +22,8 @@ edge_properties:
   - object
   - has_evidence
   - publications
+  - primary_knowledge_source
+  - aggregator_knowledge_source
   - knowledge_level
   - agent_type
 
