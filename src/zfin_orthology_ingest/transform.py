@@ -1,9 +1,7 @@
-import uuid  # For generating UUIDs for associations
+import uuid
 
+import koza
 from biolink_model.datamodel.pydanticmodel_v2 import AgentTypeEnum, GeneToGeneHomologyAssociation, KnowledgeLevelEnum
-from koza.cli_utils import get_koza_app
-
-koza_app = get_koza_app("zfin_orthology")
 
 # Mappings provided by Ceri Van Slyke from ZFIN, ORCID:0000-0002-2244-7917
 evidence_map = {
@@ -16,8 +14,8 @@ evidence_map = {
     "OT": "ECO:0000352", # Other to evidence used in manual assertion
 }
 
-while (row := koza_app.get_row()) is not None:
-
+@koza.transform_record()
+def transform_record(koza_transform, row):
     publications = [f"ZFIN:{pub}" for pub in row["publications"].split("|")] if row["publications"] else None
     evidence = evidence_map.get(row["evidence"], None)
     association = GeneToGeneHomologyAssociation(
@@ -32,4 +30,4 @@ while (row := koza_app.get_row()) is not None:
         knowledge_level=KnowledgeLevelEnum.knowledge_assertion,
         agent_type=AgentTypeEnum.manual_agent,
     )
-    koza_app.write(association)
+    return [association]

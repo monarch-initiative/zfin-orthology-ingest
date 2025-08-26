@@ -1,42 +1,64 @@
 """
 An example test file for the transform script.
 
-It uses pytest fixtures to define the input data and the mock koza transform.
-The test_example function then tests the output of the transform script.
+It uses pytest fixtures to define the input data and the KozaRunner.
+The test functions then test the output of the transform script.
 
 See the Koza documentation for more information on testing transforms:
 https://koza.monarchinitiative.org/Usage/testing/
 """
 
 import pytest
-from koza.utils.testing_utils import mock_koza
+from biolink_model.datamodel.pydanticmodel_v2 import GeneToGeneHomologyAssociation
+from koza.io.writer.writer import KozaWriter
+from koza.runner import KozaRunner, KozaTransformHooks
+from zfin_orthology_ingest.transform import transform_record
 
-# Define the ingest name and transform script path
-INGEST_NAME = "zfin_orthology"
-TRANSFORM_SCRIPT = "./src/zfin_orthology_ingest/transform.py"
+class MockWriter(KozaWriter):
+    def __init__(self):
+        self.items = []
+
+    def write(self, entities):
+        self.items += entities
+
+    def finalize(self):
+        pass
+
 
 
 @pytest.fixture
-def single_pub_entities(mock_koza):
+def single_pub_entities():
+    writer = MockWriter()
     row = {
         "zfin_gene": "ZFIN:ZDB-GENE-080513-4",
         "ortholog_gene": "HGNC:973",
         "evidence": "AA",
         "publications": "ZDB-PUB-030905-1",
     }
-
-    return mock_koza(INGEST_NAME, row, TRANSFORM_SCRIPT)
+    runner = KozaRunner(
+        data=iter([row]),
+        writer=writer,
+        hooks=KozaTransformHooks(transform_record=[transform_record])
+    )
+    runner.run()
+    return writer.items
 
 @pytest.fixture
-def multi_pub_entities(mock_koza):
+def multi_pub_entities():
+    writer = MockWriter()
     row = {
         "zfin_gene": "ZFIN:ZDB-GENE-110510-1",
         "ortholog_gene": "HGNC:11795",
         "evidence": "AA",
         "publications": "ZDB-PUB-030905-1|ZDB-PUB-140530-4|ZDB-PUB-181103-13",
     }
-
-    return mock_koza(INGEST_NAME, row, TRANSFORM_SCRIPT)
+    runner = KozaRunner(
+        data=iter([row]),
+        writer=writer,
+        hooks=KozaTransformHooks(transform_record=[transform_record])
+    )
+    runner.run()
+    return writer.items
 
 
 
