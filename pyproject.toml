@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 importlib-metadata = ">=4.8.0"
-koza = ">=0.6.0"
+koza = {git = "https://github.com/monarch-initiative/koza.git", rev = "main"}
 kghub-downloader = "^0.4.1"
 kgx = ">=2.4.0"
 biolink-model = "^4.2.0"
