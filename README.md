@@ -1,5 +1,7 @@
 # zfin-orthology-ingest
 
+> **DEPRECATED**: This repository has been consolidated into [zfin-ingest](https://github.com/monarch-initiative/zfin-ingest). Please use that repository for future development and releases.
+
 | [Documentation](https://monarch-initiative.github.io/zfin-orthology-ingest) |
 
 Transform of  ZFIN's curated orthology file into Biolink compliant KGX
