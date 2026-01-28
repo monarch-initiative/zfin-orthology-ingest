@@ -1,0 +1,40 @@
+# Config file for transforming data from a source
+# See additional/optional config parameters at https://koza.monarchinitiative.org/Ingests/source_config/
+
+name: "zfin_orthology"
+
+reader:
+  name: "zfin_orthology_reader"
+  files:
+    - "../data/zfin_orthologs.tsv"  # Paths relative to YAML location
+  format: "csv"
+  delimiter: "\t"
+  columns:
+    - "zfin_gene"
+    - "ortholog_gene"
+    - "evidence"
+    - "publications"
+
+transform:
+  name: "zfin_orthology_transform"
+  mode: "flat"
+
+writer:
+  name: "zfin_orthology_writer"
+  edge_properties:
+    - id
+    - category
+    - subject
+    - predicate
+    - object
+    - has_evidence
+    - publications
+    - primary_knowledge_source
+    - aggregator_knowledge_source
+    - knowledge_level
+    - agent_type
+
+### Optional validation parameters
+
+min_node_count: 0
+min_edge_count: 62186
