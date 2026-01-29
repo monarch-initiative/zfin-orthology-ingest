@@ -4,9 +4,13 @@
 default:
     @just --list
 
+# Install dependencies
+install:
+    uv sync
+
 # Download source data
-download:
-    kghub-downloader --output-dir data download.yaml
+download: install
+    uv run downloader download.yaml
 
 # Run preprocessing (merge ortholog files with duckdb)
 preprocess:
