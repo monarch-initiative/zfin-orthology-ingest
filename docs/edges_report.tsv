@@ -1,4 +1,4 @@
 category	subject_prefix	predicate	object_prefix	count_star()
 biolink:GeneToGeneHomologyAssociation	ZFIN	biolink:orthologous_to	FB	70
-biolink:GeneToGeneHomologyAssociation	ZFIN	biolink:orthologous_to	HGNC	34191
-biolink:GeneToGeneHomologyAssociation	ZFIN	biolink:orthologous_to	MGI	28204
+biolink:GeneToGeneHomologyAssociation	ZFIN	biolink:orthologous_to	HGNC	34195
+biolink:GeneToGeneHomologyAssociation	ZFIN	biolink:orthologous_to	MGI	28207
